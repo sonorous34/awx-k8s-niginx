@@ -24,7 +24,7 @@
         inline:
           spec:
             ports:
-              port: 80
+            - port: 80
               protocol: TCP
             selector:
               app: nginx
