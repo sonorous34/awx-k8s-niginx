@@ -26,12 +26,11 @@
             selector:
               app: nginx
             ports:
+            type: NodePort
             - protocol: TCP
               targetPort: 80
               nodePort: 30011
-              name: port-80-tcp
               port: 80
-            type: NodePort
 
     - name: Create a Deployment by reading the definition from a local file
       kubernetes.core.k8s:
