@@ -15,16 +15,3 @@
       kubernetes.core.k8s:
         state: present
         src: deployment-nginx.yml
-
-    - name: Expose deployment
-      kubernetes.core.k8s_service:
-        state: present
-        name: nginx
-        namespace: nginx
-        ports:
-        - port: 80
-          protocol: TCP
-        selector:
-          app: nginx
-
-
