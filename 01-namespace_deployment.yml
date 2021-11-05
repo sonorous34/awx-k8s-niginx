@@ -1,0 +1,39 @@
+---
+- hosts: localhost
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - name: Create a k8s namespace
+      kubernetes.core.k8s:
+        name: nginx
+        api_version: v1
+        kind: Namespace
+        state: present
+
+    - name: Create a Service object from an inline definition
+      kubernetes.core.k8s:
+        state: present
+        definition:
+          apiVersion: v1
+          kind: Service
+          metadata:
+            name: nginx
+            namespace: nginx
+            labels:
+              app: nginx
+          spec:
+            selector:
+              app: nginx
+            ports:
+            - protocol: TCP
+              targetPort: 80
+              nodePort: 30011
+              name: port-80-tcp
+              port: 80
+            type: NodePort
+
+    - name: Create a Deployment by reading the definition from a local file
+      kubernetes.core.k8s:
+        state: present
+        src: deployment-nginx.yml
