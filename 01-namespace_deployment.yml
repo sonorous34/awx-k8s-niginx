@@ -11,6 +11,25 @@
         kind: Namespace
         state: present
 
+    - name: Create a Service object from an inline definition
+      kubernetes.core.k8s:
+        state: present
+        definition:
+          apiVersion: v1
+          kind: Service
+          metadata:
+            name: nginx
+            namespace: nginx
+            labels:
+              app: nginx
+          spec:
+            selector:
+              app: nginx
+            ports:
+            - protocol: TCP
+              targetPort: 80
+              port: 80
+
     - name: Create a Deployment by reading the definition from a local file
       kubernetes.core.k8s:
         state: present
