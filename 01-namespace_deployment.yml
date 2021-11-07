@@ -16,7 +16,7 @@
         state: present
         src: deployment-nginx.yml
 
-    - name: 02-Ensure a nginx Service
+    - name: 03-Ensure a nginx Service
       kubernetes.core.k8s:
         state: present
         definition:
