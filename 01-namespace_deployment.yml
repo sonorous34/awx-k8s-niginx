@@ -4,19 +4,19 @@
   connection: local
 
   tasks:
-    - name: Create a k8s namespace
+    - name: 01-Create a k8s namespace
       kubernetes.core.k8s:
         name: nginx
         api_version: v1
         kind: Namespace
         state: present
 
-    - name: Create a Deployment by reading the definition from a local file
+    - name: 02-Create a Deployment
       kubernetes.core.k8s:
         state: present
         src: deployment-nginx.yml
 
-    - name: 02-Ensure the nginx Service exists in the nginx Namespace.
+    - name: 02-Ensure a nginx Service
       kubernetes.core.k8s:
         state: present
         definition:
