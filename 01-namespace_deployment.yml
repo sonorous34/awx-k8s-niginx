@@ -4,6 +4,11 @@
   connection: local
 
   tasks:
+    - name: 00-Launch a project with a timeout of 3 seconds
+      project_update:
+        project: "k8s-project"
+        timeout: 3
+
     - name: 01-Create a k8s namespace
       kubernetes.core.k8s:
         name: nginx
