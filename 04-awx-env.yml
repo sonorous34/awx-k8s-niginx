@@ -1,16 +1,12 @@
 ---
-- hosts: localhost
-  gather_facts: false
+- name: Add EE to the controller instance
+  hosts: localhost
   connection: local
+  vars:
+    controller_validate_certs: false
+  collections:
+    - awx.awx
+  execution_environment:
+    name: MyEE
+    image: sonorous34/k8s-awx:lts
 
-  tasks:
-    - name: Add EE to the controller instance
-      hosts: localhost
-      connection: local
-      vars:
-        controller_validate_certs: false
-      collections:
-        - awx.awx
-      execution_environment:
-        name: MyEE
-        image: sonorous34/k8s-awx:lts
