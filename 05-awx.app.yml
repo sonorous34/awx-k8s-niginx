@@ -1,0 +1,25 @@
+---
+- hosts: localhost
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - name: Add Foo application
+      application:
+        name: "Foo"
+        description: "Foo bar application"
+        organization: "k8s-org"
+        state: present
+        authorization_grant_type: password
+        client-type: public
+    
+    - name: Add Foo application
+      application:
+        name: "Foo"
+        description: "Foo bar application"
+        organization: "k8s-org"
+        state: present
+        authorization_grant_type: authorization-code
+        client-type: confidential
+        redirect_uris:
+          - http://tower.com/api/v2/
