@@ -31,6 +31,15 @@ spec:
       labels:
         app: nginx
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker02.k8s.paas
       serviceAccountName: nginx-sa
       containers:
       - name: nginx
