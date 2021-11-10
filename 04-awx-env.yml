@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - name: Add EE to the controller instance
+      execution_environment:
+        name: "My EE"
+        image: quay.io/ansible/awx-ee:latest
