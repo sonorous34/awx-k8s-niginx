@@ -7,6 +7,5 @@
   collections:
     - awx.awx
   execution_environment:
-    name: MyEE
-    image: sonorous34/k8s-awx:lts
-
+    - name: "My EE"
+    - image: sonorous34/k8s-awx:lts
