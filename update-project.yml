@@ -14,13 +14,13 @@
 
   pre_tasks:
     - name: Update Projects on Controller
-    controller_projects:
-      - name: k8s-project
-        scm_type: git
-        scm_url: https://github.com/sonorous34/awx-k8s-niginx.git
-        scm_branch: main
-        scm_clean: true
-        description: awx-nginx
-        organization: k8s-org
-        update: true
-        wait: true
+      controller_projects:
+        - name: k8s-project
+          scm_type: git
+          scm_url: https://github.com/sonorous34/awx-k8s-niginx.git
+          scm_branch: main
+          scm_clean: true
+          description: awx-nginx
+          organization: k8s-org
+          update: true
+          wait: true
