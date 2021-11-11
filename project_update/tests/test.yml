@@ -5,7 +5,7 @@
   gather_facts: false
   vars:
     controller_validate_certs: false
-    controller_hostname: http://localhost
+    controller_hostname: http://awx.k8s.paas:31904
     controller_username: admin
     controller_password: admin1234!
 
@@ -17,3 +17,6 @@
       include_vars:
         dir: ./configs
         extensions: ["yml"]
+
+  roles:
+    - {role: ../.., when: controller_projects is defined}
