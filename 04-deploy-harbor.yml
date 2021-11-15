@@ -21,3 +21,5 @@
         name: harbor
         chart_ref: harbor/harbor
         release_namespace: harbor
+        values_files:
+          - values.yaml
