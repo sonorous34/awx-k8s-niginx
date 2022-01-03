@@ -31,11 +31,20 @@ spec:
       labels:
         app: nginx
   spec:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+              - worker01.k8s.sicc.cloud
+              - worker02.k8s.sicc.cloud
+              - worker03.k8s.sicc.cloud
       serviceAccountName: nginx-sa
       containers:
       - name: nginx
         image: nginx:latest
         ports:
         - containerPort: 80
-      nodeSelector
-        node-role.kubernetes.io/worker=""
