@@ -36,10 +36,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: kubernetes.io/hostname
+              - key: node-role.kubernetes.io/worker
                 operator: In
                 values:
-                - worker02.k8s.paas
+                - worker
       serviceAccountName: nginx-sa
       containers:
       - name: nginx
