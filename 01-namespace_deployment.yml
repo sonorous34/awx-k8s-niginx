@@ -29,7 +29,7 @@
             type: NodePort
             ports:
             - port: 80
-              nodePort: 32100
+              nodePort: 32110
               targetPort: 80
             selector:
               app: nginx
