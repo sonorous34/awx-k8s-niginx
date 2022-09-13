@@ -1,5 +1,5 @@
 # File must be named k8s.yaml or k8s.yml
 plugin: kubernetes.core.k8s
 connections:
-  - kubeconfig: /var/lib/awx/projects/.kube/config
-    context: 'kubernetes-admin@kubernetes'
+  - kubeconfig: ~/.kube/config
+    context: default
